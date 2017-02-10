@@ -115,7 +115,7 @@ function filterMedia(data) {
     let media = {
         id: json.mid,
         name: json.name,
-        path: json.mpath[0] // 普清0，高清1， 超清2
+        path: json.mpath[2] // 普清0，高清1， 超清2
     };
     return media;
 }
@@ -135,7 +135,7 @@ function downloadVideo(video, code, dirPath) {
         // console.log(`Download: ${filename}.`);
         res.on('data', function(chunk) {
                 cur += chunk.length;
-                //process.stdout.write(`Download: ${(100.0 * cur / len).toFixed(2)}% ${cur} bytes/r`);
+                //process.stdout.write(`Download: ${(100.0 * cur / len).toFixed(2)}% ${cur} bytes\r`);
             })
             .on('end', function() {
                 // process.stdout.write('\n');
